@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<style>
+    body {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+    }
+
+    .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .sidebar a {
+        display: block;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+    .sidebar a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .sidebar a:hover:not(.active) {
+        background-color: #ffffff;
+        color: #cdcccc;
+    }
+
+    div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: 1000px;
+    }
+
+    @media screen and (max-width: 700px) {
+        .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        .sidebar a {
+            float: left;
+        }
+
+        div.content {
+            margin-left: 0;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .sidebar a {
+            text-align: center;
+            float: none;
+        }
+    }
+</style>
+<div class="sidebar">
+    <a href="socialnetworks">Соцсети</a>
+    <a href="/hobbies">Мои хобби</a>
+    <a href="/">Обо мне</a>
+</div>
+
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>
